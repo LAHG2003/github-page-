@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redes Sociales | Mi Empresa</title>
+  <title>Redes Sociales | Tacos El Amigo</title>
   <style>
     * {
       box-sizing: border-box;
@@ -13,25 +13,162 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
       padding: 20px;
+      overflow: hidden;
+      position: relative;
+      background: #000;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      background: #000;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.22;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .square {
+      border: 2px solid rgba(255,255,255,0.9);
+      animation-name: floatRotate;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 35px solid transparent;
+      border-right: 35px solid transparent;
+      border-bottom: 60px solid rgba(255,255,255,0.15);
+      filter: drop-shadow(0 0 2px rgba(255,255,255,0.4));
+      animation-name: driftSpin;
+    }
+
+    .triangle::after {
+      content: "";
+      position: absolute;
+      left: -31px;
+      top: 6px;
+      width: 0;
+      height: 0;
+      border-left: 31px solid transparent;
+      border-right: 31px solid transparent;
+      border-bottom: 53px solid #000;
+    }
+
+    .circle {
+      border: 2px solid rgba(255,255,255,0.9);
+      border-radius: 50%;
+      animation-name: pulseFloat;
+    }
+
+    .diamond {
+      border: 2px solid rgba(255,255,255,0.9);
+      transform: rotate(45deg);
+      animation-name: diamondMove;
+    }
+
+    .hex {
+      width: 90px;
+      height: 52px;
+      border-top: 2px solid rgba(255,255,255,0.9);
+      border-bottom: 2px solid rgba(255,255,255,0.9);
+      animation-name: slowSpinFloat;
+    }
+
+    .hex:before,
+    .hex:after {
+      content: "";
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      border: 2px solid rgba(255,255,255,0.9);
+      transform: rotate(45deg);
+      left: 11px;
+    }
+
+    .hex:before {
+      top: -32px;
+      clip-path: inset(0 0 50% 0);
+    }
+
+    .hex:after {
+      top: 20px;
+      clip-path: inset(50% 0 0 0);
+    }
+
+    .line {
+      position: absolute;
+      width: 220px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent);
+      transform-origin: center;
+      animation-name: lineMove;
+    }
+
+    .cross {
+      width: 70px;
+      height: 70px;
+      animation-name: spinScale;
+    }
+
+    .cross::before,
+    .cross::after {
+      content: "";
+      position: absolute;
+      background: rgba(255,255,255,0.9);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cross::before {
+      width: 2px;
+      height: 70px;
+    }
+
+    .cross::after {
+      width: 70px;
+      height: 2px;
+    }
+
+    .ring {
+      border: 2px solid rgba(255,255,255,0.9);
+      border-radius: 50%;
+      box-shadow: 0 0 0 8px rgba(255,255,255,0.04);
+      animation-name: pulseFloat;
+    }
+
+    .tiny {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.8);
+      animation-name: miniMove;
     }
 
     .container {
+      position: relative;
+      z-index: 2;
       width: 100%;
       max-width: 500px;
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 20px;
       padding: 35px 25px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .logo {
@@ -39,11 +176,13 @@
       height: 90px;
       margin: 0 auto 20px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 40px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.06);
     }
 
     h1 {
@@ -53,7 +192,7 @@
 
     p {
       margin-bottom: 25px;
-      color: #dbeafe;
+      color: #e5e7eb;
       line-height: 1.5;
     }
 
@@ -67,42 +206,156 @@
       border-radius: 14px;
       font-size: 1.05rem;
       font-weight: bold;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
     }
 
     .social-btn:hover {
-      transform: scale(1.02);
-      opacity: 0.92;
+      transform: scale(1.03);
+      opacity: 0.95;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     .instagram { background: #E1306C; }
     .facebook  { background: #1877F2; }
-    .tiktok    { background: #111111; }
+    .tiktok    { background: #111111; border: 1px solid rgba(255,255,255,0.2); }
     .whatsapp  { background: #25D366; }
-    .web       { background: #f59e0b; color: #111; }
 
     .footer {
       margin-top: 20px;
       font-size: 0.9rem;
-      color: #cbd5e1;
+      color: #d1d5db;
+    }
+
+    @keyframes floatRotate {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); }
+      50% { transform: translateY(-90px) translateX(40px) rotate(180deg); }
+      100% { transform: translateY(0) translateX(0) rotate(360deg); }
+    }
+
+    @keyframes driftSpin {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(70px, -110px) rotate(180deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+
+    @keyframes pulseFloat {
+      0% { transform: scale(1) translateY(0); opacity: 0.12; }
+      50% { transform: scale(1.35) translateY(-70px); opacity: 0.35; }
+      100% { transform: scale(1) translateY(0); opacity: 0.12; }
+    }
+
+    @keyframes diamondMove {
+      0% { transform: rotate(45deg) translate(0, 0); }
+      50% { transform: rotate(225deg) translate(50px, -70px); }
+      100% { transform: rotate(405deg) translate(0, 0); }
+    }
+
+    @keyframes slowSpinFloat {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-55px) rotate(180deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+
+    @keyframes lineMove {
+      0% { transform: translateX(0) rotate(0deg); opacity: 0.08; }
+      50% { transform: translateX(100px) rotate(25deg); opacity: 0.35; }
+      100% { transform: translateX(0) rotate(0deg); opacity: 0.08; }
+    }
+
+    @keyframes spinScale {
+      0% { transform: rotate(0deg) scale(1); opacity: 0.15; }
+      50% { transform: rotate(180deg) scale(1.25); opacity: 0.35; }
+      100% { transform: rotate(360deg) scale(1); opacity: 0.15; }
+    }
+
+    @keyframes miniMove {
+      0% { transform: translate(0,0) rotate(0deg); opacity: 0.12; }
+      50% { transform: translate(30px,-40px) rotate(180deg); opacity: 0.35; }
+      100% { transform: translate(0,0) rotate(360deg); opacity: 0.12; }
     }
   </style>
 </head>
 <body>
+  <div class="background">
+    <div class="shape square" style="width:130px;height:130px;top:6%;left:7%;animation-duration:16s;"></div>
+    <div class="shape square" style="width:90px;height:90px;top:14%;left:64%;animation-duration:10s;"></div>
+    <div class="shape square" style="width:70px;height:70px;top:74%;left:84%;animation-duration:13s;"></div>
+    <div class="shape square" style="width:110px;height:110px;top:80%;left:8%;animation-duration:18s;"></div>
+    <div class="shape square" style="width:55px;height:55px;top:48%;left:3%;animation-duration:9s;"></div>
+    <div class="shape square" style="width:45px;height:45px;top:28%;left:88%;animation-duration:11s;"></div>
+
+    <div class="shape triangle" style="top:10%;left:82%;animation-duration:12s;"></div>
+    <div class="shape triangle" style="top:72%;left:14%;animation-duration:15s;"></div>
+    <div class="shape triangle" style="top:55%;left:76%;animation-duration:18s;"></div>
+    <div class="shape triangle" style="top:24%;left:24%;animation-duration:14s;"></div>
+    <div class="shape triangle" style="top:84%;left:58%;animation-duration:17s;"></div>
+
+    <div class="shape circle" style="width:150px;height:150px;top:58%;left:68%;animation-duration:13s;"></div>
+    <div class="shape circle" style="width:95px;height:95px;top:12%;left:52%;animation-duration:10s;"></div>
+    <div class="shape circle" style="width:60px;height:60px;top:34%;left:74%;animation-duration:9s;"></div>
+    <div class="shape circle" style="width:120px;height:120px;top:70%;left:28%;animation-duration:16s;"></div>
+    <div class="shape circle" style="width:80px;height:80px;top:6%;left:34%;animation-duration:11s;"></div>
+
+    <div class="shape diamond" style="width:82px;height:82px;top:30%;left:18%;animation-duration:15s;"></div>
+    <div class="shape diamond" style="width:55px;height:55px;top:82%;left:46%;animation-duration:9s;"></div>
+    <div class="shape diamond" style="width:100px;height:100px;top:18%;left:70%;animation-duration:14s;"></div>
+    <div class="shape diamond" style="width:62px;height:62px;top:60%;left:12%;animation-duration:12s;"></div>
+    <div class="shape diamond" style="width:42px;height:42px;top:40%;left:90%;animation-duration:8s;"></div>
+
+    <div class="shape hex" style="top:42%;left:84%;animation-duration:18s;"></div>
+    <div class="shape hex" style="top:84%;left:72%;animation-duration:14s;"></div>
+    <div class="shape hex" style="top:8%;left:20%;animation-duration:16s;"></div>
+    <div class="shape hex" style="top:64%;left:54%;animation-duration:20s;"></div>
+
+    <div class="shape line" style="top:20%;left:25%;animation-duration:8s;"></div>
+    <div class="shape line" style="top:64%;left:5%;transform:rotate(45deg);animation-duration:10s;"></div>
+    <div class="shape line" style="top:78%;left:58%;transform:rotate(-35deg);animation-duration:12s;"></div>
+    <div class="shape line" style="top:8%;left:46%;transform:rotate(20deg);animation-duration:9s;"></div>
+    <div class="shape line" style="top:38%;left:72%;transform:rotate(-60deg);animation-duration:11s;"></div>
+    <div class="shape line" style="top:88%;left:18%;transform:rotate(12deg);animation-duration:13s;"></div>
+
+    <div class="shape cross" style="top:14%;left:14%;animation-duration:10s;"></div>
+    <div class="shape cross" style="top:54%;left:86%;animation-duration:14s;"></div>
+    <div class="shape cross" style="top:78%;left:36%;animation-duration:12s;"></div>
+    <div class="shape cross" style="top:32%;left:58%;animation-duration:9s;"></div>
+
+    <div class="shape ring" style="width:70px;height:70px;top:22%;left:40%;animation-duration:8s;"></div>
+    <div class="shape ring" style="width:120px;height:120px;top:68%;left:62%;animation-duration:15s;"></div>
+    <div class="shape ring" style="width:50px;height:50px;top:88%;left:84%;animation-duration:9s;"></div>
+    <div class="shape ring" style="width:95px;height:95px;top:4%;left:90%;animation-duration:12s;"></div>
+
+    <div class="shape tiny" style="top:12%;left:30%;animation-duration:7s;"></div>
+    <div class="shape tiny" style="top:18%;left:48%;animation-duration:6s;"></div>
+    <div class="shape tiny" style="top:26%;left:10%;animation-duration:8s;"></div>
+    <div class="shape tiny" style="top:30%;left:80%;animation-duration:5s;"></div>
+    <div class="shape tiny" style="top:36%;left:60%;animation-duration:9s;"></div>
+    <div class="shape tiny" style="top:44%;left:28%;animation-duration:7s;"></div>
+    <div class="shape tiny" style="top:50%;left:92%;animation-duration:6s;"></div>
+    <div class="shape tiny" style="top:58%;left:18%;animation-duration:8s;"></div>
+    <div class="shape tiny" style="top:66%;left:44%;animation-duration:5s;"></div>
+    <div class="shape tiny" style="top:74%;left:66%;animation-duration:9s;"></div>
+    <div class="shape tiny" style="top:82%;left:24%;animation-duration:7s;"></div>
+    <div class="shape tiny" style="top:90%;left:52%;animation-duration:6s;"></div>
+    <div class="shape tiny" style="top:8%;left:74%;animation-duration:7s;"></div>
+    <div class="shape tiny" style="top:40%;left:8%;animation-duration:6s;"></div>
+    <div class="shape tiny" style="top:62%;left:78%;animation-duration:8s;"></div>
+    <div class="shape tiny" style="top:86%;left:6%;animation-duration:5s;"></div>
+  </div>
+
   <div class="container">
-    <div class="logo">🚀</div>
-    <h1>Tacos "El amigo"</h1>
+    <div class="logo">🌮</div>
+    <h1>Tacos El Amigo</h1>
     <p>Síguenos en nuestras redes sociales y ponte en contacto con nosotros.</p>
 
-    <a class="social-btn instagram" href="https://www.instagram.com/tacos_el.amigo?igsh=MXZrejB4dnMzbzdrcA==">
+    <a class="social-btn instagram" href="https://www.instagram.com/tacos_el.amigo?igsh=MXZrejB4dnMzbzdrcA==" target="_blank">
       Instagram
     </a>
 
-    <a class="social-btn facebook" href="https://www.facebook.com/share/1BHJr5m6uf/?mibextid=wwXIfr">
+    <a class="social-btn facebook" href="https://www.facebook.com/share/1BHJr5m6uf/?mibextid=wwXIfr" target="_blank">
       Facebook
     </a>
 
-    <a class="social-btn tiktok" href="https://www.tiktok.com/@tacos.el.amigo2?_r=1&_t=ZS-95MxvuiJJv6">
+    <a class="social-btn tiktok" href="https://www.tiktok.com/@tacos.el.amigo2?_r=1&_t=ZS-95MxvuiJJv6" target="_blank">
       TikTok
     </a>
 
@@ -110,9 +363,7 @@
       WhatsApp
     </a>
 
-
-
-    <div class="footer">© 2026 Tacos "El amigo"</div>
+    <div class="footer">© 2026 Tacos El Amigo</div>
   </div>
 </body>
 </html>
