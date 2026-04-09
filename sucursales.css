@@ -177,6 +177,8 @@ h1 {
   padding: 24px 18px;
   text-align: left;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -205,6 +207,12 @@ h1 {
   border-radius: 12px;
   font-weight: bold;
   transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.card a {
+  align-self: center;
+  text-align: center;
+  margin-top: auto;
 }
 
 .card a:hover,
