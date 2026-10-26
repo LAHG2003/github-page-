@@ -89,9 +89,10 @@ a:focus-visible{outline:3px solid #edba51;outline-offset:4px}
 .branch-grid{display:grid;gap:17px;padding:13px 23px 26px}
 .branch-card{padding:18px 22px 21px;min-width:0}
 .branch-card .card-flowers{height:95px;width:51px;opacity:.5}
-.branch-day{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
-.branch-day h2{font:800 1.35rem/1.2 var(--display);color:#fff7e8;text-transform:uppercase;background:linear-gradient(#27674d,#104b34);padding:7px 18px;margin:0;border-radius:9px;box-shadow:inset 0 1px 0 #b1c69c,0 3px 0 #19422c}
-.today-label{display:none;background:#e8edcb;border:1px solid #b0be8c;color:#285036;font:800 .7rem var(--text);text-transform:uppercase;padding:6px 10px;border-radius:100px}
+.branch-day{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px;min-height:42px}
+.branch-day h2{font:800 1.35rem/1.2 var(--display);color:#fff7e8;text-transform:uppercase;background:linear-gradient(#27674d,#104b34);padding:7px 18px;margin:0 auto;border-radius:9px;box-shadow:inset 0 1px 0 #b1c69c,0 3px 0 #19422c;text-align:center}
+.today-label{display:none;position:absolute;right:0;top:0;background:#e8edcb;border:1px solid #b0be8c;color:#285036;font:800 .7rem var(--text);text-transform:uppercase;padding:6px 10px;border-radius:100px}
+.branch-card.is-today .branch-day{padding-top:27px}
 .branch-card.is-today .today-label{display:inline-block}
 .branch-card.is-today{border-color:var(--leaf);box-shadow:inset 0 0 0 3px #e6e6c8,inset 0 0 0 6px #6b936e,0 5px 0 #1e4b39}
 .branch-address{font:800 clamp(1.21rem,4.65vw,1.43rem)/1.25 var(--display);color:#422619;margin:8px 0 4px}
