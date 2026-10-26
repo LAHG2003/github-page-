@@ -1,0 +1,94 @@
+/* Tacos El Amigo · identidad rústica familiar · 2026 */
+:root {
+  color-scheme: light;
+  --ink: #382013;
+  --dark-wood: #351b10;
+  --wood: #582b16;
+  --red: #b8311d;
+  --red-darker: #812514;
+  --green: #124f37;
+  --green-deep: #0e392a;
+  --cream: #f8ecd0;
+  --cream-light: #fff5df;
+  --gold: #dcb16c;
+  --outline: #945b30;
+  --shadow: 0 8px 0 rgba(53, 25, 12, .19), 0 13px 24px rgba(39, 21, 8, .2);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:#351e12;font-family:'Nunito Sans',system-ui,-apple-system,Segoe UI,sans-serif;min-width:300px}
+button,a{ -webkit-tap-highlight-color:transparent }
+a{color:inherit}
+button,a:focus-visible{outline:3px solid #e8b755;outline-offset:4px}
+.site-bg{position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 10% 2%,#87522e55,transparent 40%),radial-gradient(ellipse at 90% 95%,#0e342355,transparent 38%),repeating-linear-gradient(0deg,#2a160e 0px,#4d2918 3px,#492515 11px,#2e190f 16px,#4a2818 23px,#321a0f 37px),#321a0f}
+.site-bg::after{content:"";position:absolute;inset:0;opacity:.26;background:repeating-linear-gradient(90deg,transparent 0,transparent 78px,#1b0c08 79px,#cc834233 81px,transparent 84px)}
+.page-shell{width:min(100% - 28px, 638px);margin:20px auto 26px;border:8px solid var(--dark-wood);border-radius:27px;box-shadow:0 22px 90px #140903a8,0 0 0 2px #ab683b;overflow:hidden;position:relative;background:var(--cream)}
+.parchment{background:radial-gradient(circle at 18% 18%,#fff8e6 0%,transparent 40%),radial-gradient(circle at 88% 76%,#e9c89577 0%,transparent 38%),repeating-linear-gradient(0deg,#78451a06 0px,#78451a06 1px,transparent 2px,transparent 7px),#f4e1bc;position:relative}
+.parchment::before{content:"";position:absolute;inset:0;pointer-events:none;border-left:1px solid #fff4d2b8;border-right:1px solid #fff4d2b8}
+.wood{background:repeating-linear-gradient(0deg,#3b2012 0px,#66371d 2px,#563018 5px,#361c11 12px,#4b2816 18px,#2d190f 29px);color:#fff6df;box-shadow:inset 0 1px 0 #bc7c45, inset 0 -3px 0 #1e1009}
+.topbar{height:52px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2}
+.eyebrow{font-weight:900;font-size:.68rem;letter-spacing:.17em;text-transform:uppercase;color:#f8d9a6}
+.topbar a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:#fff7e7;font-size:.85rem;font-weight:800}
+.topbar .nav-icon{width:19px;height:19px}
+.hero{padding:0 22px 12px;text-align:center;isolation:isolate}
+.brand-logo{display:block;width:min(100%,333px);height:auto;object-fit:contain;margin:-9px auto -4px;filter:drop-shadow(0 8px 4px #4d2d1855);position:relative;z-index:1}
+.hero h1,.branch-header h1{font-family:'Bree Serif',Georgia,serif;font-weight:400;color:var(--cream-light);text-shadow:0 2px 0 #1d0b06,0 4px 1px #6b3217;font-size:clamp(1.65rem,5.9vw,2.37rem);margin:4px 0 0;line-height:1.08}
+.title-plank{border:2px solid #241108;border-radius:12px;margin:2px auto 10px;padding:11px 8px 13px;box-shadow:inset 0 0 0 3px #a15b2e,0 6px 0 #5c3319,0 9px 17px #31170b55;max-width:520px}
+.title-plank strong{display:block;color:#ed6340;font:400 clamp(1.95rem,7.1vw,3rem)/1.08 'Bree Serif',Georgia,serif;letter-spacing:.015em;text-shadow:1px 2px 0 #61230e,0 4px 0 #1e0d08}
+.tagline{font:italic 700 clamp(.98rem,3.8vw,1.24rem)/1.38 Georgia,serif;margin:15px auto 12px;max-width:420px;color:#56311e}
+.flourish{position:absolute;font-family:Georgia,serif;color:var(--green);font-size:2rem;line-height:1;opacity:.85;pointer-events:none}
+.flourish.left{top:114px;left:13px;transform:rotate(-17deg)}
+.flourish.right{top:114px;right:13px;transform:rotate(17deg)}
+.ctas{display:grid;gap:10px;margin:12px auto 17px;max-width:520px}
+.wood-button{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;min-height:59px;border:2px solid #542714;border-radius:14px;text-decoration:none;color:#fffdf3;font-family:'Bree Serif',Georgia,serif;font-size:clamp(1.04rem,4vw,1.32rem);padding:10px 22px;box-shadow:inset 0 2px 0 #ffffff4d,inset 0 -4px 0 #00000028,0 4px 0 #32170f,0 6px 12px #32170f44;transition:transform .16s ease,box-shadow .16s ease,filter .16s ease}
+.wood-button .btn-icon{width:26px;height:26px;flex:none;fill:currentColor}
+.wood-button .btn-arrow{position:absolute;right:17px;width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round}
+.wood-button:hover{filter:brightness(1.06);transform:translateY(-2px)}
+.wood-button:active{transform:translateY(3px);box-shadow:inset 0 2px 5px #0002,0 1px 0 #32170f}
+.btn-green{background:repeating-linear-gradient(0deg,#0f422e,#1b6848 3px,#14533b 9px,#0c3b2b 22px)}
+.btn-red{background:repeating-linear-gradient(0deg,#982918,#d44223 3px,#bd2c1b 10px,#9f2d1b 24px)}
+.btn-brown{background:repeating-linear-gradient(0deg,#3b1d11,#754023 3px,#512814 9px,#391b0e 24px)}
+.content-pad{padding:0 22px 23px}
+.today-card{border:3px solid var(--outline);border-radius:19px;background:linear-gradient(130deg,#fff6df,#f6e1bd 85%);box-shadow:inset 0 0 0 4px #f9e7c8,inset 0 0 0 6px #b88045,0 7px 0 #633820,0 12px 17px #46291536;padding:17px 18px 19px;text-align:center;position:relative}
+.card-title{margin:0 auto 11px;padding:8px 12px;width:fit-content;max-width:100%;background:repeating-linear-gradient(0deg,#4d2514,#754020 3px,#512813 12px);color:#fff7e8;border:2px solid #3b1b0e;border-radius:9px;font:400 clamp(1.12rem,5vw,1.55rem) 'Bree Serif',Georgia,serif;text-transform:uppercase;line-height:1.17;box-shadow:inset 0 1px 0 #d69d57,0 3px 0 #4a2915}
+.date-pill{border-radius:99px;background:var(--green);color:#fff6de;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:7px 14px;font-weight:800;font-size:clamp(.79rem,3.2vw,.92rem)}
+.date-pill svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2}
+.today-street{font:400 clamp(1.6rem,7vw,2.5rem)/1.15 'Bree Serif',Georgia,serif;color:var(--green-deep);margin:14px auto 5px}
+.today-address{margin:0 auto 13px;font-weight:700;color:#51341f;max-width:450px;font-size:.94rem;line-height:1.42}
+.today-note{font-size:.83rem;color:#70482d;margin:-5px auto 11px}
+.maps-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;width:min(100%,320px);background:linear-gradient(#d1482a,#b12d1a);border:2px solid #802915;color:#fff8ed;text-decoration:none;border-radius:11px;box-shadow:inset 0 1px #ffb189,0 4px 0 #5b2917;font-weight:900;letter-spacing:.035em;text-transform:uppercase;font-size:.92rem;transition:transform .15s ease}
+.maps-button:hover{filter:brightness(1.08)}.maps-button:active{transform:translateY(3px)}
+.maps-button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.2}
+.maps-button[hidden]{display:none}
+.off-day{display:none}.off-day.is-visible{display:block}
+.social-footer{position:relative;padding:20px 12px 19px;text-align:center}
+.footer-label{text-transform:uppercase;letter-spacing:.18em;color:#ffe2b1;font-size:.68rem;font-weight:900;margin:0 0 12px}
+.social-links{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap}
+.social-links a{display:grid;place-items:center;width:49px;height:49px;border-radius:50%;background:linear-gradient(145deg,#fff5d8,#d4a874);border:2px solid #905122;box-shadow:0 4px 0 #2b140d,0 7px 10px #12090570;transition:transform .15s ease}
+.social-links a:hover{transform:translateY(-3px)}
+.social-links svg{width:28px;height:28px;fill:#3a2115}
+.social-links .instagram svg{fill:#a52b50}
+.social-links .facebook svg{fill:#1f5593}
+.social-links .tiktok svg{fill:#231713}
+.footer-small{display:block;margin-top:15px;color:#f0cfa0;font-size:.72rem}
+/* Sucursales */
+.branch-header{padding:15px 22px 7px;text-align:center;position:relative}
+.branch-header .small-logo{width:156px;height:auto;margin:0 auto;display:block;filter:drop-shadow(0 6px 4px #401c1455)}
+.branch-header h1{padding:10px 10px 12px;margin:6px auto 10px;border-radius:12px;border:2px solid #32180c;background:repeating-linear-gradient(0deg,#422113,#713d21 3px,#442313 12px,#321b11 22px);box-shadow:0 5px 0 #5b2b14}
+.branch-header p{margin:12px auto 10px;font:italic 700 1rem/1.45 Georgia,serif;color:#58351c}
+.branch-grid{display:grid;gap:14px;padding:13px 21px 24px}
+.branch-card{border:2px solid #9c643a;border-radius:14px;background:linear-gradient(135deg,#fff8e6,#f3dbb5);box-shadow:inset 0 0 0 3px #f9e8c8,0 5px 0 #62331b,0 9px 15px #603e2530;padding:18px 18px 16px;position:relative}
+.branch-card.is-today{border-color:var(--green);box-shadow:inset 0 0 0 3px #e7e3b3,0 5px 0 var(--green-deep),0 10px 15px #4f381b29}
+.branch-day{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 9px}
+.branch-day h2{font:400 1.32rem 'Bree Serif',Georgia,serif;text-transform:uppercase;line-height:1.2;background:var(--green);color:#fff3d6;padding:5px 17px;border-radius:7px;margin:0;box-shadow:0 3px 0 #123d2d}
+.today-label{display:none;background:#d9e9c2;color:#234d2f;font-size:.69rem;font-weight:900;text-transform:uppercase;border-radius:30px;padding:5px 8px}
+.branch-card.is-today .today-label{display:inline-flex}
+.branch-address{font-family:'Bree Serif',Georgia,serif;font-size:clamp(1.13rem,4.5vw,1.36rem);line-height:1.24;margin:10px 0 3px;color:#253f2c}
+.branch-locality{font-size:.91rem;line-height:1.4;color:#664528;font-weight:700;margin:0 0 9px}
+.branch-note{margin:0 0 13px;font-size:.84rem;font-style:italic;line-height:1.38;color:#684a30}
+.branch-card .maps-button{width:100%;background:linear-gradient(#724225,#4d2616);box-shadow:inset 0 1px #cb8b53,0 4px 0 #26120b}
+.back-link{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:var(--green);color:#fff7e9;border-radius:10px;padding:12px;max-width:260px;margin:0 auto 25px;font-weight:900}
+.back-link svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2}
+@media(min-width:780px){.page-shell{margin:40px auto}.branch-grid{grid-template-columns:1fr 1fr;gap:17px}.branch-card{min-height:236px;display:flex;flex-direction:column}.branch-card .maps-button{margin-top:auto}.branch-address{font-size:1.17rem}.branch-day h2{font-size:1.1rem}}
+@media(max-width:410px){.page-shell{width:min(100% - 14px,638px);border-width:5px;margin:8px auto}.topbar{padding:0 14px}.hero{padding-inline:13px}.content-pad{padding-inline:12px}.title-plank{padding:11px 4px}.brand-logo{max-width:290px}.wood-button{min-height:54px;padding:9px 15px}.wood-button .btn-icon{width:23px;height:23px}.wood-button .btn-arrow{right:10px}.today-card{padding:15px 12px 17px}.branch-grid{padding:13px 12px 24px}.branch-header{padding-inline:13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}
