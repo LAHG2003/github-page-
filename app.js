@@ -17,40 +17,52 @@ function getTodayInMexico() {
 
 function updateHome(){
   const {dayNumber,date} = getTodayInMexico();
-  const current = PUNTOS.find(p=>p.day===dayNumber);
-  const next = PUNTOS.map(p=>({...p,wait:(p.day-dayNumber+7)%7})).filter(p=>p.wait>0).sort((a,b)=>a.wait-b.wait)[0];
+  const current=PUNTOS.find(p=>p.day===dayNumber);
+  const next=PUNTOS.map(p=>({...p,wait:(p.day-dayNumber+7)%7}))
+    .filter(p=>p.wait>0).sort((a,b)=>a.wait-b.wait)[0];
+  const card=document.querySelector('#today-card');
   const dateEl=document.querySelector('#today-date');
+  const subtitle=document.querySelector('#today-subtitle');
   const streetEl=document.querySelector('#today-street');
   const localityEl=document.querySelector('#today-address');
   const noteEl=document.querySelector('#today-note');
   const mapEl=document.querySelector('#today-maps');
-  const whereEl=document.querySelector('#where-today');
-  const subtitle=document.querySelector('#today-subtitle');
-  if(!dateEl||!streetEl||!localityEl||!noteEl||!mapEl||!whereEl||!subtitle)return;
+  const closure=document.querySelector('#no-service');
+  const closedDay=document.querySelector('#closed-weekday');
+  const nextDay=document.querySelector('#next-sale-day');
+  if(!card||!dateEl||!subtitle||!streetEl||!localityEl||!noteEl||
+     !mapEl||!closure||!closedDay||!nextDay)return;
+
   dateEl.textContent=date;
-  const active=current || next;
-  if(!active)return;
-  streetEl.textContent=active.street;
-  localityEl.textContent=active.locality;
-  noteEl.textContent=active.note;
+  const datePill=dateEl.closest('.date-pill');
   if(current){
+    card.classList.remove('is-closed');
     subtitle.textContent='Ubicación de hoy';
+    subtitle.hidden=false;
+    datePill.hidden=false;
+    streetEl.hidden=false;
+    localityEl.hidden=false;
+    noteEl.hidden=false;
+    mapEl.hidden=false;
+    closure.hidden=true;
+    streetEl.textContent=current.street;
+    localityEl.textContent=current.locality;
+    noteEl.textContent=current.note;
     mapEl.href=current.maps;
-    mapEl.hidden=false;
-    whereEl.href=current.maps;
-    whereEl.target='_blank';
-    whereEl.rel='noopener noreferrer';
-    whereEl.querySelector('.button-text').textContent='Dónde estamos hoy';
-  }else{
-    subtitle.textContent='Próximo día de venta: '+next.name;
-    mapEl.href=next.maps;
-    mapEl.hidden=false;
-    mapEl.querySelector('.maps-label').textContent='Ver próxima ubicación en Maps';
-    // Días sin venta: no fingimos que hay un punto abierto hoy.
-    whereEl.href='sucursales.html';
-    whereEl.removeAttribute('target');
-    whereEl.removeAttribute('rel');
-    whereEl.querySelector('.button-text').textContent='Próxima ubicación';
+    mapEl.querySelector('.maps-label').textContent='Abrir con Maps';
+  }else if(next){
+    card.classList.add('is-closed');
+    subtitle.hidden=true;
+    datePill.hidden=true;
+    streetEl.hidden=true;
+    localityEl.hidden=true;
+    noteEl.hidden=true;
+    mapEl.hidden=true;
+    mapEl.removeAttribute('href');
+    closure.hidden=false;
+    const weekDays=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+    closedDay.textContent=weekDays[dayNumber];
+    nextDay.textContent=next.name.toLocaleUpperCase('es-MX');
   }
 }
 
