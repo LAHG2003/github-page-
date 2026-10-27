@@ -137,3 +137,12 @@ a:focus-visible{outline:3px solid #edba51;outline-offset:4px}
   .welcome-name{font-size:clamp(1.75rem,8.3vw,2.55rem);-webkit-text-stroke:.35px currentColor;letter-spacing:-.035em}
   .wood-button{font-size:clamp(1.08rem,4.8vw,1.31rem)}
 }
+
+/* Encabezado despejado y subtítulo de WhatsApp para cotizar eventos. */
+.brand-banner{padding-top:10px}
+.brand-logo{margin-top:0}
+.btn-whatsapp{min-height:75px;white-space:normal}
+.whatsapp-copy{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;line-height:1.15}
+.whatsapp-title{font:700 clamp(1.10rem,4.25vw,1.42rem)/1.1 var(--display)}
+.whatsapp-subtitle{font:600 clamp(.68rem,2.65vw,.81rem)/1.2 var(--text);color:#ffedcb;text-shadow:0 1px 2px #210e07;letter-spacing:.012em}
+@media(max-width:440px){.btn-whatsapp{min-height:71px;padding-top:9px;padding-bottom:9px}}
